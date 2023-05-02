@@ -18,6 +18,13 @@ Detta är grund mekanismen som måste finnas för att den ska funka.
 * Sudd ska finnas (kanske rensa allt knapp också om tid?) [Simpel lösning är att knappen applicerar samma färg som bakrunden och suddgummi, lätt om bakrunden bara är vit, så ta emot koder från färgen och lägga till den]
 * Musen ska vara en pensel istället [png bild som följer med musen, måste bara följ med rätt]
 * Skriva text []
+![]/Downloads/IMG_1197.jpg)
+## Lösningar
+
+Gör toolbar med photoshop ch få x och y kordinater från mouse event.
+Toolsen ritas över windowsmusen med mouse kordinater.
+
+
 
 
 
