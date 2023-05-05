@@ -15,18 +15,21 @@ public class Slutprojekt extends Canvas implements Runnable {
     private Thread thread;
     private boolean running = false;
     private int frames = 0;
-    private BufferedImage green;
+
+    private BufferedImage bar;
 
 
     public Slutprojekt() {
         try {
-            green = ImageIO.read(new File("green.png"));
+            bar = ImageIO.read(new File("images/bar.png"));
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
 
         }
+
+
 
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -58,7 +61,7 @@ public class Slutprojekt extends Canvas implements Runnable {
     public void draw(Graphics g) {
 
 //g.drawRect(30, 30, 30, 30, );
-        g.drawImage(green, 30, 30, green.getWidth() /45, green.getHeight() /45, null);
+        g.drawImage(bar, 0, 0, bar.getWidth(), bar.getHeight(), null);
     }
 
     private void update() {

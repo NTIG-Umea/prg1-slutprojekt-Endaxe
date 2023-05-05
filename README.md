@@ -23,6 +23,7 @@ Detta är grund mekanismen som måste finnas för att den ska funka.
 
 Gör toolbar med photoshop ch få x och y kordinater från mouse event.
 Toolsen ritas över windowsmusen med mouse kordinater.
+Om kordinaten på musen är < toolbar kordinaterna så kan man inte rita.
 
 
 
