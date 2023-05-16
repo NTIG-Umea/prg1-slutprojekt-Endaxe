@@ -18,11 +18,12 @@ public class Slutprojekt extends Canvas implements Runnable {
     private Thread thread;
     private boolean running = false;
     private int frames = 0;
-    Label l;
+//    Label l;
 
     private BufferedImage bar;
+    private BufferedImage image;
+    private BufferedImage reset;
 
-    private int mouseX;
 
 
     public Slutprojekt() {
@@ -34,17 +35,22 @@ public class Slutprojekt extends Canvas implements Runnable {
             e.printStackTrace();
 
         }
-
-
+        image =new BufferedImage(1920,1080,BufferedImage.TYPE_INT_ARGB);
+        reset =new BufferedImage(1920,1080,BufferedImage.TYPE_INT_ARGB);
 
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        setSize(1920,1080);
+        setSize(1920, 1080);
 
         JFrame frame = new JFrame();
         frame.add(this);
+  //      l = new Label();
+  //      l.setBounds(600, 40, 100, 20);
+  //      frame.add(l);
+
         //frame.addKeyListener(new MyKeyListener());
-        frame.addMouseMotionListener(new MyMouseMotionListener());
+        this.addMouseMotionListener(new MyMouseMotionListener());
+        this.addMouseListener( new MyMouseListener());
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
@@ -69,7 +75,10 @@ public class Slutprojekt extends Canvas implements Runnable {
     public void draw(Graphics g) {
 
 //g.drawRect(30, 30, 30, 30, );
+        g.drawImage(image, 0, 0, 1920, 1080, null);
         g.drawImage(bar, 0, 0, bar.getWidth(), bar.getHeight(), null);
+        g.drawImage(reset, 385, 965, 1920, 1080, null);
+
     }
 
     private void update() {
@@ -83,7 +92,6 @@ public class Slutprojekt extends Canvas implements Runnable {
         Mittslutprojekt.start();
 
     }
-
 
 
     public synchronized void start() {
@@ -103,7 +111,7 @@ public class Slutprojekt extends Canvas implements Runnable {
 
     @Override
     public void run() {
-        double ns = 1000000000.0 / 60.0;
+        double ns = 1000000000.0 / 144.0;
         double delta = 0;
         long lasTime = System.nanoTime();
 
@@ -121,62 +129,64 @@ public class Slutprojekt extends Canvas implements Runnable {
         }
     }
 
-        public class MyMouseMotionListener extends Frame implements MouseMotionListener {
-            MyMouseMotionListener(){
-                    l=new Label();
-                    l.setBounds(600,40,100,20);
-                    add(l);
+    public class MyMouseMotionListener implements MouseMotionListener {
+        @Override
+        public void mouseDragged(MouseEvent e) {
 
-            }
+            System.out.println("X=" + e.getX() + ", Y=" + e.getY());
 
-            @Override
-            public void mouseDragged(MouseEvent e) {
-
-                l.setText("X=" + e.getX() + ", Y=" + e.getY());
-
-                if (bar.getWidth() > 300){
-                    Graphics g = getGraphics();
-                    g.setColor(Color.BLACK);
-                    g.fillOval(e.getX(), e.getY(), 10, 10);
-                }
-                else{
-                    Graphics g = getGraphics();
-                    g.setColor(Color.BLACK);
-                    g.fillOval(e.getX(), e.getY(), 20, 20);
-                }
-            }
-
-            @Override
-            public void mouseMoved(MouseEvent e) {
-                l.setText("X="+e.getX()+", Y="+e.getY());
+            if (e.getX() > bar.getWidth()) {
+                Graphics g = image.getGraphics();
+                g.setColor(Color.BLACK);
+                g.fillOval(e.getX(), e.getY(), 10, 10);
+            } else {
+                Graphics g = getGraphics();
+                g.setColor(Color.BLACK);
+                g.fillOval(e.getX(), e.getY(), 0, 0);
             }
         }
 
-        public class MyMouseListener implements MouseListener {
 
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                int mouseX = e.getX();
+        @Override
+        public void mouseMoved(MouseEvent e) {
+            System.out.println("X=" + e.getX() + ", Y=" + e.getY());
 
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-            }
         }
+
+
         //stop();
+    }public class MyMouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+
+            if (0 < e.getX() && e.getX() < 400 && 855 < e.getY() && e.getY() < 990) {
+
+                Graphics g = image.getGraphics();
+                g.setColor(Color.white);
+                g.fillRect(0,0,1920,1080);
+
+            }
+
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
 }
 
 
