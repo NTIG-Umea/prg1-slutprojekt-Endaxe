@@ -24,7 +24,9 @@ public class Slutprojekt extends Canvas implements Runnable {
     private BufferedImage image;
     private BufferedImage reset;
 
+    private BufferedImage color;
 
+    private Color currentColor = new Color(0x000000);
 
     public Slutprojekt() {
         try {
@@ -77,7 +79,7 @@ public class Slutprojekt extends Canvas implements Runnable {
 //g.drawRect(30, 30, 30, 30, );
         g.drawImage(image, 0, 0, 1920, 1080, null);
         g.drawImage(bar, 0, 0, bar.getWidth(), bar.getHeight(), null);
-        g.drawImage(reset, 385, 965, 1920, 1080, null);
+       // g.drawImage(reset, 385, 965, 1920, 1080, null);
 
     }
 
@@ -137,11 +139,11 @@ public class Slutprojekt extends Canvas implements Runnable {
 
             if (e.getX() > bar.getWidth()) {
                 Graphics g = image.getGraphics();
-                g.setColor(Color.BLACK);
+                g.setColor(currentColor);
                 g.fillOval(e.getX(), e.getY(), 10, 10);
             } else {
                 Graphics g = getGraphics();
-                g.setColor(Color.BLACK);
+                g.setColor(currentColor);
                 g.fillOval(e.getX(), e.getY(), 0, 0);
             }
         }
@@ -168,6 +170,46 @@ public class Slutprojekt extends Canvas implements Runnable {
 
             }
 
+ //första raden
+            if (0 < e.getX() && e.getX() < 191 && 0 < e.getY() && e.getY() < 172) {
+
+                currentColor = new Color(0x00b90d);
+            }
+
+            if (200 < e.getX() && e.getX() < 386 && 0 < e.getY() && e.getY() < 172) {
+
+                currentColor = new Color(0xfcff00);
+            }
+
+
+
+//andra raden
+            if (0 < e.getX() && e.getX() < 191 && 181 < e.getY() && e.getY() < 364) {
+
+                currentColor = new Color(0x001eff);
+            }
+
+            if (200 < e.getX() && e.getX() < 386 && 181 < e.getY() && e.getY() < 364) {
+
+                currentColor = new Color(0xff0000);
+            }
+
+
+
+//tredje raden
+            if (0 < e.getX() && e.getX() < 191 && 371 < e.getY() && e.getY() < 560) {
+
+                currentColor = new Color(0x000000);
+            }
+
+            if (200 < e.getX() && e.getX() < 386 && 371 < e.getY() && e.getY() < 560) {
+
+                currentColor = new Color(0xffA500);
+            }
+
+            //sudd
+
+
 
         }
 
@@ -181,6 +223,8 @@ public class Slutprojekt extends Canvas implements Runnable {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+
+            .list.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
         }
 
         @Override
