@@ -149,6 +149,7 @@ public class Slutprojekt extends Canvas implements Runnable {
         }
 
 
+
         @Override
         public void mouseMoved(MouseEvent e) {
             System.out.println("X=" + e.getX() + ", Y=" + e.getY());
@@ -224,7 +225,7 @@ public class Slutprojekt extends Canvas implements Runnable {
         @Override
         public void mouseEntered(MouseEvent e) {
 
-            .list.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
+            //.list.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
         }
 
         @Override
