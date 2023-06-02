@@ -12,7 +12,7 @@ Sedan så försökte jag tänka på hur jag kunde koda den så effektivast så m
 
 ## Bakgrund
 
-Jag vill göra detta projekt för att jag kände att det var den rimligaste med det jag vet och att det fortfarande var lite utmanande med nya grejer.
+Jag vill göra detta projekt för att jag kände att det var den rimligaste med kunskaperna jag kan och att det fortfarande var lite utmanande med nya grejer.
 Så att det inte bara var grejer som jag kunde. 
 
 Hela allt börjad med ett pappers skiss där den stora baren var utritad med lite ideer om hur man kunde använda den.
