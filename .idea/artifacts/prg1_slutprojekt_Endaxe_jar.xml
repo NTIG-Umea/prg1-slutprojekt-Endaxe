@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="prg1-slutprojekt-Endaxe:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/prg1_slutprojekt_Endaxe_jar</output-path>
+    <root id="archive" name="prg1-slutprojekt-Endaxe.jar">
+      <element id="module-output" name="prg1-slutprojekt-Endaxe" />
+    </root>
+  </artifact>
+</component>
